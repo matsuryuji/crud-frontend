@@ -114,16 +114,23 @@ const UserFormEdit = () => {
                   )}
                 </InputMask>
               </div>
-              <TextField
-                name='placaCarro'
-                label='Placa do Carro'
-                fullWidth
-                value={formik.values.placaCarro}
+              <InputMask
+                mask='aaa-9999'
+                disabled={false}
+                maskChar=''
                 onChange={formik.handleChange}
-                error={formik.touched.placaCarro && Boolean(formik.errors.placaCarro)}
-                helperText={formik.touched.placaCarro && formik.errors.placaCarro}
-              />
-
+                value={formik.values.placaCarro}
+              >
+                {() => (
+                  <TextField
+                    name='placaCarro'
+                    label='Placa do Carro'
+                    fullWidth
+                    error={formik.touched.placaCarro && Boolean(formik.errors.placaCarro)}
+                    helperText={formik.touched.placaCarro && formik.errors.placaCarro}
+                  />
+                )}
+              </InputMask>
               <Button sx={{ marginTop: '20px' }} variant='contained' fullWidth type='submit'>
                 Confirmar
               </Button>
